@@ -98,7 +98,6 @@
             this.txtbBLStr.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtbBLStr.Size = new System.Drawing.Size(390, 207);
             this.txtbBLStr.TabIndex = 24;
-            this.txtbBLStr.TextChanged += new System.EventHandler(this.txtbBLStr_TextChanged);
             // 
             // label3
             // 

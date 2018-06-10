@@ -11,8 +11,9 @@ namespace compareResults
         #region "variaveis"
         string file1, file2; //variavel pro diretorio dos arquivos
         bool f1 = false, f2 = false; //bool pra ver se os arquivos foram escolhidos
-        int ctipo = 1; //tipo de compare
-        int stest = 0, sigu = 0, sdif = 0; //variavel pra contagem de strings
+        public static int ctipo = 1, ftipo = 1; //tipo de compare, formatacao
+        int stest = 0, sigu = 0, sdif = 0, sbla = 0; //variavel pra contagem de strings
+        Config cfrm = new Config();
         #endregion
 
         public Comparador()
@@ -24,7 +25,7 @@ namespace compareResults
         private void controlsChecando()
         {
             //atualiza todos os controles quando o usuario clicar pra comparar
-            btTrocar.Enabled = false; //botao de trocar tipo de compare
+            btConfig.Enabled = false; //botao de trocar tipo de compare
             btFile1.Enabled = false; //botao de selecionar arquivo 1
             btFile2.Enabled = false; //botao de selecionar arquivo 2
             btComparar.Enabled = false; //botao de comparar
@@ -35,7 +36,7 @@ namespace compareResults
         private void controlsParado()
         {
             //atualiza todos os controles quando o usuario clicar pra parar o compare
-            btTrocar.Enabled = true; //botao de trocar tipo de compare
+            btConfig.Enabled = true; //botao de trocar tipo de compare
             btFile1.Enabled = true; //botao de selecionar arquivo 1
             btFile2.Enabled = true; //botao de selecionar arquivo 2
             btComparar.Enabled = true; //botao de comparar
@@ -49,6 +50,7 @@ namespace compareResults
             lbStest.Text = "Strings testadas: " + stest;
             lbSigu.Text = "Strings iguais: " + sigu;
             lbSdif.Text = "Strings diferentes: " + sdif;
+            lbSbla.Text = "Strings blacklisteds: " + sbla;
         }
 
         private bool checarCompare(string linha, int tipo)
@@ -98,15 +100,19 @@ namespace compareResults
         }
         #endregion
 
-        #region "botoes"
+        #region "event de control"
         private void btComparar_Click(object sender, EventArgs e)
         {
             //atualiza as variaveis de contagem de string
             stest = 0;
             sigu = 0;
             sdif = 0;
+            sbla = 0;
             //limpa a textbox de strings diferentes
             txtbStrings.Text = "";
+            //fecha form de config, se tiver aberto
+            cfrm.Hide();
+
             if (f2 != false && f1 != false) //se os 2 arquivos de texto tiverem setados
             {
                 timerInfo.Start(); //começa o timer pra aparecer a contagem de strings na tela
@@ -151,17 +157,31 @@ namespace compareResults
             }
         }
 
-        private void btTrocar_Click(object sender, EventArgs e)
+        private void btConfig_Click(object sender, EventArgs e)
         {
-            if (ctipo == 1) //checa o tipo de compare
+            cfrm.Show(); //mostra o form de config
+        }
+
+        private void txtbStrings_TextChanged(object sender, EventArgs e)
+        {
+            int max = txtbStrings.Lines.Length; //quantidade linhas do textbox que mostra as strings
+            if (max > 0) //se tiver mais q 0 linhas
             {
-                ctipo = 2; //muda o tipo de compare
-                lbTipo.Text = "Comparando arquivo 2 com arquivo 1"; //atualiza o texto da label
-            }
-            else
-            {
-                ctipo = 1; //muda o tipo de compare
-                lbTipo.Text = "Comparando arquivo 1 com arquivo 2"; //atualiza o texto da label
+                string ultLinha = txtbStrings.Lines[max - 1]; //pega a ultima linha do textbox
+                if (cfrm.txtbBLStr.Text != "") //se o textbox de strings blacklisted nao tiver vazia
+                {
+                    for (int i = 0; i < cfrm.txtbBLStr.Lines.Length; i++) //pra cada string no textbox de strings blacklisted
+                    {
+                        if (ultLinha.Contains(cfrm.txtbBLStr.Lines[i])) //compara se nova linha contem alguma das strings blacklisted
+                        {
+                            //se tiver
+                            txtbStrings.Text = txtbStrings.Text.Remove(txtbStrings.Text.LastIndexOf(Environment.NewLine)); //tira ultima linha
+                            sdif--; //diminui contagem de strings diferente
+                            sbla++; //aumenta contagem de strings blacklisted
+                        }
+                    }
+                }
+
             }
         }
 
@@ -172,6 +192,11 @@ namespace compareResults
                 file1 = coisinhaDeEscolherArquivoLol.FileName; //seta a variavel que indica o diretorio com o arquivo de texto escolhido
                 f1 = true; //atualiza o bool que indica se arquivo foi setado ou nao
             }
+        }
+
+        private void Comparador_Load(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
@@ -203,6 +228,13 @@ namespace compareResults
                         {
                             if (!cTipo2.CancellationPending) //se worker nao tiver em estado de cancelamento
                             {
+                                if (ftipo == 2) //se tipo de formatação for 2
+                                {
+                                    if (line.StartsWith("0x")) //se linha começar com argumento
+                                    {
+                                        line = line.Substring(line.IndexOf(':') + 2); //tira argumento e deixa só string
+                                    }
+                                }
 
                                 if (checarCompare(line, ctipo)) //se arquivo sendo comparado tiver string
                                 {
@@ -215,7 +247,7 @@ namespace compareResults
                                     sdif++; //aumenta a contagem de strings diferente
                                     this.Invoke(new MethodInvoker(delegate //invoke porque backgroundworker nao pode atualizar control
                                     {
-                                        txtbStrings.AppendText(line + Environment.NewLine); //mostra a string diferente na textbox
+                                        txtbStrings.AppendText(Environment.NewLine + line); //mostra a string diferente na textbox
                                     }));
                                 }
                             }
@@ -238,6 +270,13 @@ namespace compareResults
                         {
                             if (!cTipo1.CancellationPending) //se worker nao tiver em estado de cancelamento
                             {
+                                if (ftipo == 2) //se tipo de formatação for 2
+                                {
+                                    if (line.StartsWith("0x")) //se linha começar com argumento
+                                    {
+                                        line = line.Substring(line.IndexOf(':') + 2); //tira argumento e deixa só string
+                                    }
+                                }
 
                                 if (checarCompare(line, ctipo)) //se arquivo sendo comparado tiver string
                                 {
@@ -250,7 +289,7 @@ namespace compareResults
                                     sdif++; //aumenta a contagem de strings diferente
                                     this.Invoke(new MethodInvoker(delegate //invoke porque backgroundworker nao pode atualizar control
                                     {
-                                        txtbStrings.AppendText(line + Environment.NewLine); //mostra a string diferente na textbox
+                                        txtbStrings.AppendText(Environment.NewLine + line); //mostra a string diferente na textbox
                                     }));
                                 }
                             }

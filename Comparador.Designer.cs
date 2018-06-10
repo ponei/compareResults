@@ -40,24 +40,34 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.lbStest = new System.Windows.Forms.Label();
             this.lbSigu = new System.Windows.Forms.Label();
             this.lbSdif = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lbTipo = new System.Windows.Forms.Label();
-            this.btTrocar = new System.Windows.Forms.Button();
+            this.btConfig = new System.Windows.Forms.Button();
             this.cTipo1 = new System.ComponentModel.BackgroundWorker();
             this.cTipo2 = new System.ComponentModel.BackgroundWorker();
             this.timerInfo = new System.Windows.Forms.Timer(this.components);
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.lbFazendo = new System.Windows.Forms.Label();
             this.lbRam = new System.Windows.Forms.Label();
             this.procInfo = new System.Windows.Forms.Timer(this.components);
             this.btParar = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbSbla = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // btFile1
@@ -93,13 +103,14 @@
             // txtbStrings
             // 
             this.txtbStrings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.txtbStrings.Location = new System.Drawing.Point(33, 357);
+            this.txtbStrings.Location = new System.Drawing.Point(33, 349);
             this.txtbStrings.Multiline = true;
             this.txtbStrings.Name = "txtbStrings";
             this.txtbStrings.ReadOnly = true;
             this.txtbStrings.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtbStrings.Size = new System.Drawing.Size(462, 260);
+            this.txtbStrings.Size = new System.Drawing.Size(462, 284);
             this.txtbStrings.TabIndex = 3;
+            this.txtbStrings.TextChanged += new System.EventHandler(this.txtbStrings_TextChanged);
             // 
             // coisinhaDeEscolherArquivoLol
             // 
@@ -148,21 +159,10 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.MediumOrchid;
-            this.panel6.Location = new System.Drawing.Point(12, 329);
+            this.panel6.Location = new System.Drawing.Point(12, 321);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 289);
+            this.panel6.Size = new System.Drawing.Size(5, 312);
             this.panel6.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(205, 334);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 17);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Strings diferentes";
             // 
             // lbStest
             // 
@@ -180,7 +180,7 @@
             this.lbSigu.AutoSize = true;
             this.lbSigu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.lbSigu.ForeColor = System.Drawing.Color.White;
-            this.lbSigu.Location = new System.Drawing.Point(23, 91);
+            this.lbSigu.Location = new System.Drawing.Point(23, 84);
             this.lbSigu.Name = "lbSigu";
             this.lbSigu.Size = new System.Drawing.Size(101, 17);
             this.lbSigu.TabIndex = 10;
@@ -191,7 +191,7 @@
             this.lbSdif.AutoSize = true;
             this.lbSdif.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.lbSdif.ForeColor = System.Drawing.Color.White;
-            this.lbSdif.Location = new System.Drawing.Point(23, 114);
+            this.lbSdif.Location = new System.Drawing.Point(23, 107);
             this.lbSdif.Name = "lbSdif";
             this.lbSdif.Size = new System.Drawing.Size(127, 17);
             this.lbSdif.TabIndex = 11;
@@ -200,53 +200,31 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.MediumOrchid;
-            this.panel7.Location = new System.Drawing.Point(12, 175);
+            this.panel7.Location = new System.Drawing.Point(12, 178);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(5, 64);
+            this.panel7.Size = new System.Drawing.Size(5, 50);
             this.panel7.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(206, 175);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 17);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Tipo de compare";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(222, 16);
+            this.label6.Location = new System.Drawing.Point(205, 1);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "Comparador";
             // 
-            // lbTipo
+            // btConfig
             // 
-            this.lbTipo.AutoSize = true;
-            this.lbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.lbTipo.ForeColor = System.Drawing.Color.White;
-            this.lbTipo.Location = new System.Drawing.Point(133, 204);
-            this.lbTipo.Name = "lbTipo";
-            this.lbTipo.Size = new System.Drawing.Size(245, 17);
-            this.lbTipo.TabIndex = 14;
-            this.lbTipo.Text = "Comparando arquivo 1 com arquivo 2";
-            // 
-            // btTrocar
-            // 
-            this.btTrocar.Location = new System.Drawing.Point(395, 201);
-            this.btTrocar.Name = "btTrocar";
-            this.btTrocar.Size = new System.Drawing.Size(63, 25);
-            this.btTrocar.TabIndex = 15;
-            this.btTrocar.Text = "Trocar";
-            this.btTrocar.UseVisualStyleBackColor = true;
-            this.btTrocar.Click += new System.EventHandler(this.btTrocar_Click);
+            this.btConfig.Location = new System.Drawing.Point(181, 202);
+            this.btConfig.Name = "btConfig";
+            this.btConfig.Size = new System.Drawing.Size(170, 26);
+            this.btConfig.TabIndex = 15;
+            this.btConfig.Text = "Abrir aba de configuração";
+            this.btConfig.UseVisualStyleBackColor = true;
+            this.btConfig.Click += new System.EventHandler(this.btConfig_Click);
             // 
             // cTipo1
             // 
@@ -266,28 +244,17 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.MediumOrchid;
-            this.panel8.Location = new System.Drawing.Point(12, 251);
+            this.panel8.Location = new System.Drawing.Point(12, 243);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(5, 64);
             this.panel8.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(240, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Status";
             // 
             // lbFazendo
             // 
             this.lbFazendo.AutoSize = true;
             this.lbFazendo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.lbFazendo.ForeColor = System.Drawing.Color.White;
-            this.lbFazendo.Location = new System.Drawing.Point(36, 281);
+            this.lbFazendo.Location = new System.Drawing.Point(33, 277);
             this.lbFazendo.Name = "lbFazendo";
             this.lbFazendo.Size = new System.Drawing.Size(105, 17);
             this.lbFazendo.TabIndex = 17;
@@ -298,7 +265,7 @@
             this.lbRam.AutoSize = true;
             this.lbRam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.lbRam.ForeColor = System.Drawing.Color.White;
-            this.lbRam.Location = new System.Drawing.Point(300, 281);
+            this.lbRam.Location = new System.Drawing.Point(300, 277);
             this.lbRam.Name = "lbRam";
             this.lbRam.Size = new System.Drawing.Size(132, 17);
             this.lbRam.TabIndex = 18;
@@ -312,7 +279,7 @@
             // 
             // btParar
             // 
-            this.btParar.Location = new System.Drawing.Point(177, 278);
+            this.btParar.Location = new System.Drawing.Point(177, 274);
             this.btParar.Name = "btParar";
             this.btParar.Size = new System.Drawing.Size(51, 25);
             this.btParar.TabIndex = 19;
@@ -321,41 +288,149 @@
             this.btParar.Visible = false;
             this.btParar.Click += new System.EventHandler(this.btParar_Click);
             // 
-            // Checker
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel9.Controls.Add(this.label6);
+            this.panel9.Location = new System.Drawing.Point(16, 13);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(501, 22);
+            this.panel9.TabIndex = 20;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel10.Controls.Add(this.label3);
+            this.panel10.Location = new System.Drawing.Point(16, 178);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(501, 22);
+            this.panel10.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(202, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(92, 17);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Configuração";
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel11.Controls.Add(this.label4);
+            this.panel11.Location = new System.Drawing.Point(16, 243);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(501, 22);
+            this.panel11.TabIndex = 22;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(222, 1);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 17);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Status";
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel12.Controls.Add(this.label2);
+            this.panel12.Location = new System.Drawing.Point(16, 321);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(501, 22);
+            this.panel12.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(188, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 17);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Strings diferentes";
+            // 
+            // lbSbla
+            // 
+            this.lbSbla.AutoSize = true;
+            this.lbSbla.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.lbSbla.ForeColor = System.Drawing.Color.White;
+            this.lbSbla.Location = new System.Drawing.Point(23, 130);
+            this.lbSbla.Name = "lbSbla";
+            this.lbSbla.Size = new System.Drawing.Size(137, 17);
+            this.lbSbla.TabIndex = 23;
+            this.lbSbla.Text = "Strings blacklisteds: ";
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.MediumOrchid;
+            this.panel13.Location = new System.Drawing.Point(29, 279);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(4, 15);
+            this.panel13.TabIndex = 24;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.MediumOrchid;
+            this.panel14.Location = new System.Drawing.Point(296, 279);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(4, 15);
+            this.panel14.TabIndex = 25;
+            // 
+            // Comparador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(507, 628);
+            this.ClientSize = new System.Drawing.Size(507, 645);
+            this.Controls.Add(this.panel14);
+            this.Controls.Add(this.panel13);
+            this.Controls.Add(this.lbSbla);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel12);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel11);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.btParar);
             this.Controls.Add(this.lbRam);
             this.Controls.Add(this.lbFazendo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.btTrocar);
-            this.Controls.Add(this.lbTipo);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.btConfig);
             this.Controls.Add(this.btComparar);
             this.Controls.Add(this.btFile2);
             this.Controls.Add(this.btFile1);
             this.Controls.Add(this.lbSdif);
             this.Controls.Add(this.lbSigu);
             this.Controls.Add(this.lbStest);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtbStrings);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "Checker";
+            this.Name = "Comparador";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "comparador de bosta pelo @poneigc";
+            this.Load += new System.EventHandler(this.Comparador_Load);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +441,6 @@
         private System.Windows.Forms.Button btFile1;
         private System.Windows.Forms.Button btFile2;
         private System.Windows.Forms.Button btComparar;
-        private System.Windows.Forms.TextBox txtbStrings;
         private System.Windows.Forms.OpenFileDialog coisinhaDeEscolherArquivoLol;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -374,24 +448,31 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbStest;
         private System.Windows.Forms.Label lbSigu;
         private System.Windows.Forms.Label lbSdif;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lbTipo;
-        private System.Windows.Forms.Button btTrocar;
+        private System.Windows.Forms.Button btConfig;
         private System.ComponentModel.BackgroundWorker cTipo1;
         private System.ComponentModel.BackgroundWorker cTipo2;
         private System.Windows.Forms.Timer timerInfo;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbFazendo;
         private System.Windows.Forms.Label lbRam;
         private System.Windows.Forms.Timer procInfo;
         private System.Windows.Forms.Button btParar;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbSbla;
+        private System.Windows.Forms.TextBox txtbStrings;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel14;
     }
 }
 

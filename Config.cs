@@ -15,13 +15,8 @@ namespace compareResults
         public Config()
         {
             InitializeComponent();
-            this.FormClosing += new FormClosingEventHandler(Config_FormClosing);
-        }
-
-        public string txtbText()
-        {
-            return txtbBLStr.Text;
-        }
+            this.FormClosing += new FormClosingEventHandler(Config_FormClosing); //evento pra quando o form estiver fechando
+        }        
 
         private void btTrocar_Click(object sender, EventArgs e)
         {
@@ -44,8 +39,8 @@ namespace compareResults
 
         private void Config_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            Hide();
+            e.Cancel = true; //cancela o fechamento
+            Hide(); //esconde form ao invez de fechar
         }
 
         private void btTFormat_Click(object sender, EventArgs e)
@@ -60,11 +55,6 @@ namespace compareResults
                 Comparador.ftipo = 1; //muda o tipo de formatacao
                 lbFormat.Text = "Nenhuma"; //atualiza o texto da label
             }
-        }
-
-        private void txtbBLStr_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
