@@ -64,6 +64,9 @@
             this.lbSbla = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.btTFrm = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -161,7 +164,7 @@
             this.panel6.BackColor = System.Drawing.Color.MediumOrchid;
             this.panel6.Location = new System.Drawing.Point(12, 321);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(5, 312);
+            this.panel6.Size = new System.Drawing.Size(5, 353);
             this.panel6.TabIndex = 5;
             // 
             // lbStest
@@ -384,12 +387,44 @@
             this.panel14.Size = new System.Drawing.Size(4, 15);
             this.panel14.TabIndex = 25;
             // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.MediumOrchid;
+            this.panel15.Location = new System.Drawing.Point(29, 650);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(4, 15);
+            this.panel15.TabIndex = 28;
+            // 
+            // btTFrm
+            // 
+            this.btTFrm.Location = new System.Drawing.Point(331, 645);
+            this.btTFrm.Name = "btTFrm";
+            this.btTFrm.Size = new System.Drawing.Size(51, 25);
+            this.btTFrm.TabIndex = 27;
+            this.btTFrm.Text = "Abrir";
+            this.btTFrm.UseVisualStyleBackColor = true;
+            this.btTFrm.Click += new System.EventHandler(this.btTFrm_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(33, 648);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Caixa de texto temporária (copiar, editar, etc.)";
+            // 
             // Comparador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(507, 645);
+            this.ClientSize = new System.Drawing.Size(507, 680);
+            this.Controls.Add(this.panel15);
+            this.Controls.Add(this.btTFrm);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
             this.Controls.Add(this.lbSbla);
@@ -470,9 +505,12 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbSbla;
-        private System.Windows.Forms.TextBox txtbStrings;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button btTFrm;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtbStrings;
     }
 }
 

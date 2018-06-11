@@ -10,10 +10,12 @@ namespace compareResults
     {
         #region "variaveis"
         string file1, file2; //variavel pro diretorio dos arquivos
+        public static string txtbT;
         bool f1 = false, f2 = false; //bool pra ver se os arquivos foram escolhidos
         public static int ctipo = 1, ftipo = 1; //tipo de compare, formatacao
         int stest = 0, sigu = 0, sdif = 0, sbla = 0; //variavel pra contagem de strings
-        Config cfrm = new Config();
+        Config cfrm = new Config(); //form de config
+        Temp ctmp = new Temp(); //form temp
         #endregion
 
         public Comparador()
@@ -183,6 +185,13 @@ namespace compareResults
                 }
 
             }
+        }
+
+        private void btTFrm_Click(object sender, EventArgs e)
+        {
+            txtbT = txtbStrings.Text; //copia o texto da textbox de strings pra uma variavel
+            ctmp.Show(); //abre o form temp
+            ctmp.updateInfo(); //atualiza a info do form temp
         }
 
         private void btFile1_Click(object sender, EventArgs e)
